@@ -96,4 +96,9 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         android:onClick="calculer" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
