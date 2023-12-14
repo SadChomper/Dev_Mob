@@ -1,4 +1,4 @@
-package com.example.mesure_glycemie.controller;
+/*package com.example.mesure_glycemie.controller;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -32,3 +32,5 @@ public class LoginController {
         instance.password = sharedPreferences.getString(KEY_PASSWORD, null);
     }
 }
+
+ */

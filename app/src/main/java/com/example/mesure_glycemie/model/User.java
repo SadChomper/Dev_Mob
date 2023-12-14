@@ -1,4 +1,4 @@
-package com.example.mesure_glycemie.model;
+/*package com.example.mesure_glycemie.model;
 
 public class User {
     private String username;
@@ -29,3 +29,5 @@ public class User {
         this.password = password;
     }
 }
+
+ */
