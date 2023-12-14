@@ -11,14 +11,12 @@
         android:id="@+id/btnConsultation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="80dp"
-        android:layout_marginLeft="72dp"
         android:layout_marginTop="230dp"
         android:layout_marginEnd="80dp"
-        android:layout_marginRight="88dp"
         android:layout_marginBottom="80dp"
         android:background="@color/blue"
         android:text="Consultation"
@@ -29,20 +27,17 @@
         android:id="@+id/Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="20dp"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="39dp"
         android:layout_marginBottom="20dp"
         android:hint="Username"
         android:inputType="text"
         android:textColor="@android:color/black"
-        android:textSize="25dp"></EditText>
+        android:textSize="25dp" />
 
     <EditText
         android:id="@+id/Password"
@@ -50,14 +45,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Username"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="1dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="39dp"
         android:layout_marginBottom="20dp"
         android:hint="Password"
         android:inputType="text"
         android:textColor="@android:color/black"
-        android:textSize="25dp"></EditText>
+        android:textSize="25dp" />
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.mesure_glycemie.R;
 import com.example.mesure_glycemie.controller.Controller;
+import com.example.mesure_glycemie.controller.LoginController;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     //private TextView text; Not necessary anymore
     private Controller controller = Controller.getInstance();
+    private LoginController LG = LoginController.getInstance();
 
 
     private void init() {
