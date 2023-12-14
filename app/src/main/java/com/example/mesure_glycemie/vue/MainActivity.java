@@ -2,6 +2,7 @@ package com.example.mesure_glycemie.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,17 +17,19 @@ import com.example.mesure_glycemie.R;
 import com.example.mesure_glycemie.controller.Controller;
 
 public class MainActivity extends AppCompatActivity {
-    //Question1
+
+    private final int REQUEST_CODE = 1;
     private TextView TVAge;
     private SeekBar sbAge;
     private RadioButton BtnOui;
     private RadioButton BtnNon;
     private EditText ETValMes;
     private Button BtnConsulter;
-    private TextView text;
+
+    //private TextView text; Not necessary anymore
     private Controller controller = Controller.getInstance();
 
-    //Question 2
+
     private void init() {
         TVAge = findViewById(R.id.TVAge);
         sbAge = findViewById(R.id.sbAge);
@@ -34,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         BtnNon = findViewById(R.id.BtnNon);
         ETValMes = findViewById(R.id.ETValMes);
         BtnConsulter = findViewById(R.id.BtnConsulter);
-        text = findViewById(R.id.text);
-        //Question 3
+        //text = findViewById(R.id.text); Not necessary anymore
+
         sbAge.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -65,24 +68,35 @@ public class MainActivity extends AppCompatActivity {
                 if(sbAge.getProgress()!=0)
                     verifAge = true;
                 else
-                    Toast.makeText(MainActivity.this, "Veuillez saisir votre age: ",
-                            Toast.LENGTH_SHORT).show();
+                    //text.setText("Veuillez saisir votre age");
+                    Toast.makeText(MainActivity.this, "Veuillez saisir votre age", Toast.LENGTH_LONG).show();
                 if(!ETValMes.getText().toString().isEmpty())
                     verifValeur = true;
                 else
-                    Toast.makeText(MainActivity.this, "Veuillez saisir votre valeur mesurée: ",
-                            Toast.LENGTH_LONG).show();
+                    //text.setText("Veuillez saisir votre valeur mesurée");
+                    Toast.makeText(MainActivity.this, "Veuillez saisir votre valeur mesurée", Toast.LENGTH_LONG).show();
                 if(verifAge && verifValeur)
                 {
                     age = sbAge.getProgress();
+
                     valeurMesuree = Float.valueOf(ETValMes.getText().toString());
-                    //Flèche "User action" Vue --> Controller
+
                     controller.createPatient(age, valeurMesuree, BtnOui.isChecked());
-                    //Flèche "Update" Controller --> vue
-                    text.setText(controller.getReponse());
+
+                    Intent intent = new Intent (MainActivity.this, ConsultActivity.class);
+                    intent.putExtra("reponse",controller.getReponse());
+                    startActivityForResult(intent, REQUEST_CODE);
                 }
             }
         });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE)
+            if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(MainActivity.this, "ERROR : RESULT_CANCELED", Toast.LENGTH_SHORT).show();
+            }
     }
 
     @Override

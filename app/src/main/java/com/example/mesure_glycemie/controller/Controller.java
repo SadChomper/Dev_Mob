@@ -1,21 +1,22 @@
 package com.example.mesure_glycemie.controller;
 
 import com.example.mesure_glycemie.model.Patient;
-public class Controller {
-    public static Patient patient;
-    public Controller(){
-        super();
-    }
+public final class Controller {
+    public static Patient afra;
+
+    public Controller() { super(); }
 
     public void createPatient(int age, float valeurMesuree, boolean isFasting){
-        Patient patient1 = new Patient(20, 0.6f, true);
+        Patient afra = new Patient(20, 0.6f, true);
     }
 
     public String getReponse() {
-        return patient.getReponse();
+        return afra.getReponse();
     }
 
-    static Controller instance;
+    //Cette objet joue le rôle du singleton de la classe
+    static Controller instance = null;
+    //“getInstance()” est responsable à la création d'une seule instance de la classe Controller
     public static final Controller getInstance(){
     if(Controller.instance == null)
     Controller.instance = new Controller();

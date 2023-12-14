@@ -5,6 +5,7 @@ public class Patient {
     private float valeurMesuree;
     private boolean isFasting;
     private static String reponse;
+
     //Flèche "Update" Controller --> Model
     public Patient(int age, float valeurMesuree, boolean isFasting) {
         this.age = age;
@@ -12,6 +13,18 @@ public class Patient {
         this.isFasting = isFasting;
         calculer();
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public float getValeurMesuree() {
+        return valeurMesuree;
+    }
+    public boolean isFasting() {
+        return isFasting;
+    }
+
     private void calculer ()
     {
         if(isFasting) {
@@ -42,15 +55,7 @@ public class Patient {
                 reponse = "Niveau de glycémie est trop élevé";
         }
     }
-    public int getAge() {
-        return age;
-    }
-    public float getValeurMesuree() {
-        return valeurMesuree;
-    }
-    public boolean isFasting() {
-        return isFasting;
-    }
+
     //Flèche "Notify" Model --> Controller
     public String getReponse() {
         return reponse;

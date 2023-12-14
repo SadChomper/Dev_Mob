@@ -84,13 +84,13 @@
         android:layout_marginTop="20dp"
         android:textSize="25sp"
         android:hint="Valeur mesurée (en mmol/l)"
-        android:inputType="numberDecimal" />
+        android:inputType = "numberDecimal" />
 
     <Button
         android:id="@+id/BtnConsulter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#1CC58A"
         android:text="Consulter"
         android:textColor="@color/white"
